@@ -10,7 +10,7 @@ app.use(cors()); // allow frontend to make requests
 app.use(express.json()); // Parse JSON body in POST requests 
 
 // connecting to mongoDB
-mongoose.connect('mongodb+srv://jeethendravaraprasad007_db_user:BPHPxLWBnovTT1Nm@user-info-cluster.az3h5lu.mongodb.net/userinfo')
+mongoose.connect('YOUR_MONGODB_CONNECTION_STRING')
     .then("Connected to Mongodb")
     .catch(err=>{
         console.log("Error connecting to MongoDB" , err)
