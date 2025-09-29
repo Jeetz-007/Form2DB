@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form2DB</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Form2DB</h1>
+    </header>
+    <div class="container">
+        <form action="" id="data">
+            <label for="username">Username</label><br>
+            <input type="text" id="username" name="username" placeholder="Username" required><br>
+            <br>
+            <label for="email">Email</label><br>
+            <input type="email" name="email" id="email" placeholder="Email" required>
+            <br>
+            <br>
+            <button>Submit</button>
+        </form>
+    </div>
+
+    <script>
+        const data = document.getElementById('data');
+
+        data.addEventListener('submit',async (e)=>{
+            e.preventDefault(); // preventing page reload 
+
+            // extracting values from input fields
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            // console.log(username,email); // for debugging
+
+            // sending data to backend
+            try{
+                const res = await fetch('http://localhost:3000/adduser',{
+                    method:"POST",
+                    headers:{"Content-Type":"application/json"},
+                    body:JSON.stringify({username,email}) // sending JS object as JSON
+                })
+                if(res.ok){
+                    alert("Form Submitted. Check your MongoDB atlas")
+                    e.target.reset(); // clear the form after successful submission
+                }
+                else{
+                    alert("Something went wrong...!!")
+                }
+            }
+            catch(err){
+                console.log(err); // log fetch errors
+                alert("Failed to submit form. Check console.")
+            }
+        })
+    </script>
+</body>
+</body>
+</html>
+
+
