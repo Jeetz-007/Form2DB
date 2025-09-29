@@ -33,8 +33,6 @@ You can run the project locally and test the form submission. Data will be saved
 ## Installation
 
 1. **Clone the repository**
-
-```bash
 git clone https://github.com/Jeetz-007/Form2DB.git
 cd Form2DB
 
@@ -52,14 +50,14 @@ npm install express mongoose cors
 5. Open index.html in your browser to test the form.
 
 
-Usage
+## Usage
 1. Fill in the username and email fields.
 2. Click Submit.
 3. Data will be saved in MongoDB and a success alert will appear.
 4. Use /showinfo GET route to view all users:
     GET http://localhost:3000/showinfo
 
-Folder Structure
+## Folder Structure
 Form2DB/
 │
 ├── index.html       # Frontend form
