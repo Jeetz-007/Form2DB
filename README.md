@@ -51,7 +51,7 @@ npm install express mongoose cors
 
 
 ## Usage
-1. Fill in the username and email fields.
+1. Fill in the username,email and password fields.
 2. Click Submit.
 3. Data will be saved in MongoDB and a success alert will appear.
 4. Use /showinfo GET route to view all users:
