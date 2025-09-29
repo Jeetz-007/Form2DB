@@ -12,8 +12,7 @@ app.use(express.json()); // Parse JSON body in POST requests
 
 // connecting to mongoDB
 // mongoose.connect('YOUR_MONGODB_CONNECTION_STRING')
-mongoose.connect('mongodb+srv://jeethendravaraprasad007_db_user:BPHPxLWBnovTT1Nm@user-info-cluster.az3h5lu.mongodb.net/userinfo')
-    .then("Connected to Mongodb")
+mongoose.connect("YOUR_MONGODB_CONNECTION_STRING")
     .catch(err=>{
         console.log("Error connecting to MongoDB" , err)
     })
