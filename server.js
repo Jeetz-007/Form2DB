@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
 
 // Allow frontend (any origin for now)
@@ -10,7 +11,8 @@ app.use(cors()); // allow frontend to make requests
 app.use(express.json()); // Parse JSON body in POST requests 
 
 // connecting to mongoDB
-mongoose.connect('YOUR_MONGODB_CONNECTION_STRING')
+// mongoose.connect('YOUR_MONGODB_CONNECTION_STRING')
+mongoose.connect('mongodb+srv://jeethendravaraprasad007_db_user:BPHPxLWBnovTT1Nm@user-info-cluster.az3h5lu.mongodb.net/userinfo')
     .then("Connected to Mongodb")
     .catch(err=>{
         console.log("Error connecting to MongoDB" , err)
@@ -20,7 +22,8 @@ mongoose.connect('YOUR_MONGODB_CONNECTION_STRING')
 // schema
 const UserSchema = new mongoose.Schema({
     username:String,
-    email: String
+    email: String,
+    password:String,
 })
 
 
@@ -29,11 +32,12 @@ const User = mongoose.model('User',UserSchema);
 
 // Route to add a user
 app.post('/adduser', async (req,res)=>{
-    const {username,email} = req.body // destructuring data from request 
+    const {username,email,password} = req.body // destructuring data from request 
 
     try{
+        const hashedPassword = await bcrypt.hash(password, 10); // hash password with 10 salt rounds
         // Create a new document in memory
-        const newUser = new User({username,email}); 
+        const newUser = new User({username,email,password: hashedPassword}); 
 
         // Save the document to MongoDB
         await newUser.save();

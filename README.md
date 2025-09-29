@@ -1,6 +1,6 @@
 # Form2DB
 
-Form2DB is a simple web application that allows users to submit their **username** and **email** via a form. The submitted data is stored directly in a **MongoDB database** using **Node.js**, **Express**, and **Mongoose**. This project demonstrates a basic **frontend-backend-DB interaction** with proper handling of POST requests.
+Form2DB is a simple web application that allows users to submit their **username** , **email** and **password** via a form. The submitted data is stored directly in a **MongoDB database** using **Node.js**, **Express**, and **Mongoose**. This project demonstrates a basic **frontend-backend-DB interaction** with proper handling of POST requests.
 
 ---
 
@@ -59,7 +59,6 @@ npm install express mongoose cors
 
 ## Folder Structure
 Form2DB/
-│
 ├── index.html       # Frontend form
 ├── style.css        # (Optional) Styling for form
 ├── server.js        # Backend server with routes and MongoDB connection
