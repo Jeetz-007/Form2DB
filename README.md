@@ -12,7 +12,7 @@ You can run the project locally and test the form submission. Data will be saved
 
 ## Features
 
-- Simple **HTML form** to collect user information (username & email).  
+- Simple **HTML form** to collect user information (username,email and password).  
 - **Fetch API** is used to send form data to the backend without page reload.  
 - Backend built with **Node.js** and **Express**.  
 - **MongoDB Atlas** used to store submitted data.  
